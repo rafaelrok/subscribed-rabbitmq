@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		springBootVersion = '2.6.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id 'java'
+	id 'application'
+	id 'maven-publish'
+	id 'org.springframework.boot' version '2.6.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group = 'com.rafaelvieira'
+version = '0.1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.flywaydb:flyway-core:5.2.4'
+	implementation 'org.modelmapper:modelmapper:2.3.0'
+	implementation 'commons-io:commons-io:2.5'
+	implementation 'org.mockito:mockito-all:1.10.19'
+	implementation 'junit:junit:4.12'
+
+	runtimeOnly 'mysql:mysql-connector-java'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.4.0'
+
+
+}
+
